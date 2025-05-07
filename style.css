@@ -1,0 +1,72 @@
+body {
+  background-color: #ffe6f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.etapa {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.etapa img,
+.etapa video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(204, 51, 102, 0.3);
+}
+
+.legenda {
+  margin-top: 10px;
+  font-style: italic;
+  color: #cc3366;
+  font-size: 16px;
+  padding: 0 8px;
+}
+
+.video-container {
+  position: relative;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(204, 51, 102, 0.7);
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.video-container:hover .play-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 480px) {
+  .play-button {
+    font-size: 24px;
+    padding: 8px 14px;
+  }
+
+  .legenda {
+    font-size: 15px;
+  }
+}
