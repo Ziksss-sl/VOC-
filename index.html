@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Diário Romântico</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    .etapa {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .etapa img,
+    .etapa video {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(204, 51, 102, 0.3);
+    }
+
+    .legenda {
+      margin-top: 10px;
+      font-style: italic;
+      color: #cc3366;
+      font-size: 16px;
+      padding: 0 8px;
+    }
+
+    .video-container {
+      position: relative;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(204, 51, 102, 0.7);
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 10px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .video-container:hover .play-button {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 480px) {
+      .play-button {
+        font-size: 24px;
+        padding: 8px 14px;
+      }
+      .legenda {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="etapa">
+    <img src="foto1.jpg" alt="Foto 1">
+    <p class="legenda">NOIS SOMOS IGUAIS ESSES GATINHOS 😭🥺❤️</p>
+  </div>
+
+  <div class="etapa">
+    <img src="foto2.jpg" alt="Foto 2">
+    <p class="legenda">VOCÊ É TÃO LINDA QUANTO UMA F40 😭❤️</p>
+  </div>
+
+  <div class="etapa">
+    <div class="video-container">
+      <video id="video1" preload="metadata">
+        <source src="video1.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <button class="play-button" onclick="togglePlay('video1', this)">▶</button>
+    </div>
+    <p class="legenda">VOCÊ É TÃO LINDA QUANTO UMA F40 😭❤️</p>
+  </div>
+
+  <div class="etapa">
+    <div class="video-container">
+      <video id="video2" preload="metadata">
+        <source src="video2.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+      <button class="play-button" onclick="togglePlay('video2', this)">▶</button>
+    </div>
+    <p class="legenda">SUA VOZ É TÃO LINDA QUANTO A DE UM RONCO DE UM R34 MODIFICADO 😭❤️</p>
+  </div>
+
+  <div class="etapa">
+    <img src="foto3.jpg" alt="Foto 3">
+    <p class="legenda">SEUS OLHOS SÃO TÃO LINDOS QUANTO OS FAROIS DE UMA BMW E36 😭❤️</p>
+  </div>
+
+  <div class="etapa">
+    <img src="foto4.jpg" alt="Foto 4">
+    <p class="legenda">UM POEMA PRA VOCÊ, POR QUE VOCÊ MERECE 🥺❤️</p>
+  </div>
+</div>
+
+<script>
+  const videos = document.querySelectorAll("video");
+
+  function togglePlay(id, button) {
+    const currentVideo = document.getElementById(id);
+
+    videos.forEach(video => {
+      if (video !== currentVideo) {
+        video.pause();
+        video.currentTime = 0;
+        const btn = video.parentElement.querySelector(".play-button");
+        if (btn) btn.textContent = "▶";
+      }
+    });
+
+    if (currentVideo.paused) {
+      currentVideo.play();
+      button.textContent = "❚❚";
+    } else {
+      currentVideo.pause();
+      button.textContent = "▶";
+    }
+
+    currentVideo.onended = () => {
+      button.textContent = "▶";
+    };
+  }
+</script>
+
+</body>
+</html>
